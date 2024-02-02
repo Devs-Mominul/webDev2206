@@ -1,0 +1,297 @@
+@extends('frontend.master')
+@section('content')
+<!-- start wpo-page-title -->
+<section class="wpo-page-title">
+    <h2 class="d-none">Hide</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="wpo-breadcumb-wrap">
+                    <ol class="wpo-breadcumb-wrap">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Shop</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section>
+<!-- end page-title -->
+
+<!-- product-area-start -->
+<div class="shop-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="shop-filter-wrap">
+                    <div class="filter-item">
+                        <div class="shop-filter-item">
+                            <div class="shop-filter-search">
+                                <form>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Search..">
+                                        <button class="search_btn" type="submit"><i class="ti-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item">
+                            <h2>Shop by Category</h2>
+                            <ul>
+                               @foreach ($categories as $category)
+                               <li>
+                                <label class="topcoat-radio-button__label">
+                                 {{ $category->category_name }}<span>(21)</span>
+                                    <input type="radio" class="category_id" name="category_id"  value="{{$category->id}}">
+                                    <span class="topcoat-radio-button"></span>
+                                </label>
+                            </li>
+
+                               @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item">
+                            <h2>Filter by price</h2>
+                            <div class="shopWidgetWraper">
+                                <div class="priceFilterSlider">
+                                    <form action="#" method="get" class="clearfix">
+                                        <!-- <div id="sliderRange"></div>
+                                        <div class="pfsWrap">
+                                            <label>Price:</label>
+                                            <span id="amount"></span>
+                                        </div> -->
+                                        <div class="d-flex">
+                                            <div class="col-lg-6 pe-2">
+                                                <label for="" class="form-label">Min</label>
+                                                <input type="number" class="form-control" placeholder="Min" id="min" >
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="" class="form-label">Max</label>
+                                                <input type="number" class="form-control" placeholder="Max" id="max" >
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 col-lg-12">
+                                            <button id='price_range' class="form-control bg-light">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item">
+                            <h2>Color</h2>
+                            <ul>
+                               @foreach ($colors as $color)
+                               <li>
+                                <label class="topcoat-radio-button__label">
+                                    {{ $color->color_name }} <span>(21)</span>
+                                    <input class="color_id" type="radio" name="topcoat2" value="{{ $color->id }}">
+                                    <span class="topcoat-radio-button"></span>
+                                </label>
+                                </li>
+
+                               @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item">
+                            <h2>Size</h2>
+                            <ul>
+                                @foreach ($sizes as $size)
+                                <li>
+                                 <label class="topcoat-radio-button__label">
+                                     {{ $size->size_name }} <span>(21)</span>
+                                     <input class="size_id" type="radio" name="topcoat2" value="{{ $size->id }}">
+                                     <span class="topcoat-radio-button"></span>
+                                 </label>
+                                 </li>
+
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item new-product">
+                            <h2>New Products</h2>
+                            <ul>
+                                <li>
+                                    <div class="product-card">
+                                        <div class="card-image">
+                                            <div class="image">
+                                                <img src="assets/images/new-product/1.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h3><a href="product.html">Stylish Pink Coat</a></h3>
+                                            <div class="rating-product">
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <span>30</span>
+                                            </div>
+                                            <div class="price">
+                                                <span class="present-price">$120.00</span>
+                                                <del class="old-price">$200.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-card">
+                                        <div class="card-image">
+                                            <div class="image">
+                                                <img src="assets/images/new-product/2.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h3><a href="product.html">Blue Bag</a></h3>
+                                            <div class="rating-product">
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <span>30</span>
+                                            </div>
+                                            <div class="price">
+                                                <span class="present-price">$120.00</span>
+                                                <del class="old-price">$200.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-card">
+                                        <div class="card-image">
+                                            <div class="image">
+                                                <img src="assets/images/new-product/3.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h3><a href="product.html">Kids Blue Shoes</a></h3>
+                                            <div class="rating-product">
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <i class="fi flaticon-star"></i>
+                                                <span>30</span>
+                                            </div>
+                                            <div class="price">
+                                                <span class="present-price">$120.00</span>
+                                                <del class="old-price">$200.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="shop-filter-item tag-widget">
+                            <h2>Popular Tags</h2>
+                            <ul>
+                                <li><a href="#">Fashion</a></li>
+                                <li><a href="#">Shoes</a></li>
+                                <li><a href="#">Kids</a></li>
+                                <li><a href="#">Theme</a></li>
+                                <li><a href="#">Stylish</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="shop-section-top-inner">
+                    <div class="shoping-product">
+                        <p>We found <span>{{ $products->count() }} items</span> for you!</p>
+                    </div>
+                    <div class="short-by">
+                        <ul>
+                            <li>
+                                Sort by:
+                            </li>
+                            <li>
+                                <select name="show">
+                                    <option value="">Default Sorting</option>
+                                    <option value="">Low To High</option>
+                                    <option value="">High To Low</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-wrap">
+                    <div class="row align-items-center">
+                       @foreach ($products as $product)
+                       <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="product-item">
+                            <div class="image">
+                                <img  height="250px" style="object-fit: contain;"  src="{{ asset('upload/preview/') }}/{{ $product->preview }}" alt="">
+                                <div class="tag new">New</div>
+                            </div>
+                            <div class="text">
+                                <h2><a href="product-single.html">{{ $product->product_name }}</a></h2>
+                                <div class="rating-product">
+                                    <i class="fi flaticon-star"></i>
+                                    <i class="fi flaticon-star"></i>
+                                    <i class="fi flaticon-star"></i>
+                                    <i class="fi flaticon-star"></i>
+                                    <i class="fi flaticon-star"></i>
+                                    <span>130</span>
+                                </div>
+                                <div class="price">
+                                    <span class="present-price">${{ $product->after_discount }}</span>
+                                    <del class="old-price">${{ $product->price }}</del>
+                                </div>
+                                <div class="shop-btn">
+                                    <a class="theme-btn-s2" href="product.html">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                       @endforeach
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- product-area-end -->
+
+@endsection
+@push('frontend_js')
+<script>
+    $('.search-btn').click(function(){
+        var search_input=$('#search_input').val();
+        var category_id=$("input[type='radio'][name='category_id']:checked").val();
+        $min=$('#min').val();
+        $max=$('#max').val();
+
+
+
+
+        var link="{{ route('shop') }}"+"?search_input="+search_input +"&category_id="+category_id +"&min="+min +"&max="+max;
+        window.location.href=link;
+
+    })
+</script>
+
+@endpush
